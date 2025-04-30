@@ -1,0 +1,53 @@
+Authentication and Access Control
+
+The application must have a login page with access restricted to a single administrator.
+
+The application must not expose admin credentials on the front page or in any publicly accessible part of the code.
+
+The application must prompt the user (developer/owner) to input the administrator credentials at setup time, which must then be securely stored using encryption.
+
+The application must not hard-code or display admin credentials in plaintext or in the frontend under any circumstances.
+
+User Management
+
+The administrator must have the ability to create new user accounts and define their login credentials.
+
+The application must remove any registration feature visible to general users.
+
+A "Back" button must be added where applicable to improve navigation.
+
+User Features
+
+Users must be able to send a submission consisting of an optional image and a required caption text.
+
+Once submitted, the data must be securely transmitted and stored using strong encryption, ensuring that only authorized parties (the admin and the corresponding user) can view or interact with the data.
+
+Admin Features
+
+The administrator must receive each submission and be able to assign a status:
+
+Accepted
+
+Rejected
+
+Need Edits
+
+The administrator must also be able to attach comments or reasons with each status decision.
+
+Feedback and Edit Flow
+
+Users must be notified of the status of their submission.
+
+If the status is "Accepted", the process ends.
+
+If "Need Edits", the user must be allowed to resubmit an updated version.
+
+If "Rejected", the user must not be allowed to resubmit or edit.
+
+Security
+
+The application must implement secure storage and encryption of all user and admin data, including credentials and submissions.
+
+Communication between the client and server must be encrypted (e.g., using HTTPS or end-to-end encryption).
+
+No sensitive information (e.g., credentials or user submissions) must be visible or accessible to unauthorized users or stored in an unencrypted format.

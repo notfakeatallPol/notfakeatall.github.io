@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}Secure Submission System - Home{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4 mb-4">Secure Submission System</h1>
+    <p class="lead mb-5">A secure platform for managing and reviewing submissions</p>
+    <div class="d-grid gap-2 col-md-6 mx-auto">
+        <a href="{{ url_for('login') }}" class="btn btn-primary btn-lg">
+            <i class="fas fa-sign-in-alt me-2"></i>Login
+        </a>
+    </div>
+</div>
+{% endblock %}

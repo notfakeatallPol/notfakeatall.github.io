@@ -1,0 +1,103 @@
+/* Custom styles for Secure Submission System */
+
+/* Form styling */
+.form-signin {
+    max-width: 400px;
+    margin: 0 auto;
+    padding-top: 2rem;
+}
+
+/* Submission card styling */
+.submission-card {
+    transition: transform 0.2s;
+    border: none;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
+}
+
+.submission-card:hover {
+    transform: translateY(-5px);
+}
+
+.submission-image-container {
+    height: 180px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.submission-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Status badge styling */
+.status-pending {
+    background-color: var(--bs-warning);
+    color: var(--bs-dark);
+}
+
+.status-accepted {
+    background-color: var(--bs-success);
+}
+
+.status-rejected {
+    background-color: var(--bs-danger);
+}
+
+.status-needs-edits {
+    background-color: var(--bs-info);
+}
+
+/* Dashboard stat cards */
+.stat-card {
+    transition: transform 0.2s;
+    border: none;
+    border-left: 4px solid transparent;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card.primary {
+    border-left-color: var(--bs-primary);
+}
+
+.stat-card.success {
+    border-left-color: var(--bs-success);
+}
+
+.stat-card.warning {
+    border-left-color: var(--bs-warning);
+}
+
+.stat-card.danger {
+    border-left-color: var(--bs-danger);
+}
+
+/* Text truncation for cards */
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Filter form in submissions page */
+.filter-form .input-group {
+    width: auto;
+}
+
+/* Adjust spacing */
+.card {
+    overflow: hidden;
+}
+
+/* Form validation styling */
+.invalid-feedback {
+    display: block;
+}

@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ 'Edit Submission' if is_edit else 'New Submission' }}{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('user_dashboard') }}" class="btn btn-sm btn-secondary mb-3">
+    <i class="fas fa-arrow-left me-1"></i>Back to Dashboard
+</a>
+
+<div class="card shadow">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">
+            {% if is_edit %}
+            <i class="fas fa-edit me-2"></i>Edit Submission #{{ submission.id }}
+            {% else %}
+            <i class="fas fa-plus-circle me-2"></i>New Submission
+            {% endif %}
+        </h5>
+    </div>
+    <div class="card-body">
+        <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+            {{ form.hidden_tag() }}
+            
+            <div class="mb-3">
+                {{ form.caption.label(class="form-label") }}
+                {{ form.caption(class="form-control" + (" is-invalid" if form.caption.errors else ""), rows=5, placeholder="Enter your caption here") }}
+                {% for error in form.caption.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
+                <div class="form-text">This field is required.</div>
+            </div>
+            
+            <div class="mb-4">
+                {{ form.image.label(class="form-label") }}
+                {{ form.image(class="form-control" + (" is-invalid" if form.image.errors else ""), accept="image/*") }}
+                {% for error in form.image.errors %}
+                    <div class="invalid-feedback">{{ error }}</div>
+                {% endfor %}
+                <div class="form-text">Supported formats: JPG, JPEG, PNG, GIF (Max: 5MB)</div>
+            </div>
+            
+            {% if is_edit and submission.image_path %}
+            <div class="mb-4">
+                <label class="form-label">Current Image</label>
+                <div class="submission-image-container border rounded mb-2">
+                    <img src="{{ url_for('uploaded_file', filename=submission.image_path.split('/')[-1]) }}" alt="Current Image" class="submission-image">
+                </div>
+                <div class="form-text">Upload a new image to replace this one, or leave empty to keep the current image.</div>
+            </div>
+            {% endif %}
+            
+            <!-- Image preview area for new uploads -->
+            <div id="image-preview" class="mb-4"></div>
+            
+            <div class="d-grid">
+                {{ form.submit(class="btn btn-primary btn-lg", value=('Update Submission' if is_edit else 'Submit')) }}
+            </div>
+        </form>
+    </div>
+    <div class="card-footer bg-light">
+        <div class="text-muted">
+            <small><i class="fas fa-shield-alt me-1"></i>Your submission will be securely encrypted and only visible to you and the administrator.</small>
+        </div>
+    </div>
+</div>
+{% endblock %}
